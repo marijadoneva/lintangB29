@@ -8,7 +8,7 @@ Feature: User should login
 
 
   Scenario: Login with valid credentials
-    When user enters "Employee80" username
+    When user enters "Employee10" username
     And user enters "Employee123" password
     And user clicks Log in
     Then user should see the dashboard
