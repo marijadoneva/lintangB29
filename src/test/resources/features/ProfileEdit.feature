@@ -4,13 +4,35 @@ Feature: Edit/Enter Profile Settings Functionality
   As a user, I should be able to change profile info settings under the Profile module.
 
   Background: For all scenarios user is on the login page of the seamlessly application
-    Given user is on the login page of the seamlessly application
-    When user enters "Employee30" username
-    And user enters "Employee123" password
-    And user clicks Log in
-    Then user should see the dashboard
-    When User can see at least following titles inside “Personal Info” under Profile Settings page   => Full name/Email/Phone Number
-    And Name of the user in the Settings field should be the same with Full Name input box
-    And User cannot pass any characters except numbers into the "Phone Number" input box
+    Given user is on the dashboard page
+
+    Scenario: full name/Email/Phone input boxes should be on the profile page
+    When user clicks View Profile settings
+    And  user should click settings from view profile
+    Then user should see Full name_Email_Phone from the profile page
+
+
+    Scenario: name on the settings field should be the same with Full Name input box
+    When user clicks View Profile settings
+    Then user should see name on Settings field should be the same with Full Name input box
+
+  @Positive
+  Scenario: user can just pass numbers as phone number
+    When user clicks View Profile settings
+    And enter phone number in to the input box
+    Then user can pass numbers as phone number
+
+   @Negative
+  Scenario: any characters except numbers should not be pass
+    When user clicks View Profile settings
+    And enter phone number in to the input box
+    Then user cannot pass any characters except number
+
+
+
+
+
+
+
 
 
