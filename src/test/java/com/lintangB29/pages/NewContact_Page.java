@@ -5,14 +5,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MainPage {
+public class NewContact_Page {
 
-    public MainPage(){
+    public NewContact_Page(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "(//li[.='Login'])[1]")
-    public WebElement Login;
+    @FindBy(id="new-contact-button")
+    public WebElement newContactButton;
+
+    @FindBy(id="//input[@id='contact-fullname']")
+    public WebElement nameBox;
+
+
 
 
 }

@@ -1,10 +1,13 @@
 package com.lintangB29.pages;
 
+import com.lintangB29.utilities.ConfigurationReader;
 import com.lintangB29.utilities.Driver;
 import com.lintangB29.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.lang.module.Configuration;
 
 public class LoginPage {
 
@@ -24,15 +27,9 @@ public class LoginPage {
 
 
 
-    /**
-     * This method will log in with credentials that are
-     * provided in the method at the time of calling it
-     * @param user Employee80
-     * @param pass Employee123
-     */
-    public void login(String user, String pass){
-        this.usernameBox.sendKeys(user);
-        this.passwordBox.sendKeys(pass);
+    public void login(){
+        this.usernameBox.sendKeys(ConfigurationReader.getProperty("username"));
+        this.passwordBox.sendKeys(ConfigurationReader.getProperty("password"));
         this.loginBtn.click();
     }
 }
