@@ -14,8 +14,11 @@ public class NewContact_Page {
     @FindBy(id="new-contact-button")
     public WebElement newContactButton;
 
-    @FindBy(id="//input[@id='contact-fullname']")
-    public WebElement nameBox;
+    @FindBy(id="//input[@id='con")
+    public WebElement NameBox;
+
+
+
 
 
 
