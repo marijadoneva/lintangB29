@@ -9,6 +9,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -65,4 +66,29 @@ public class TaskModuleFunctionality_StepDefinition {
 
     }
 
+    @When("user clicks on {string}")
+    public void user_clicks_on(String task) {
+
+        WebElement wantedTask = Driver.getDriver().findElement(By.xpath("//span[@title='"+task+"']"));
+        wantedTask.click();
+    }
+    @When("user clicks on Add task box")
+    public void user_clicks_on_add_task_box() {
+        taskModuleFunctionalityPage.addTextBox.click();
+    }
+    @When("user writes {string}")
+    public void user_writes(String string) {
+        taskModuleFunctionalityPage.addTextBox.sendKeys(string);
+    }
+    @Then("user clicks Enter")
+    public void user_clicks_enter() {
+       taskModuleFunctionalityPage.addTextBox.sendKeys(Keys.ENTER);
+    }
+
+
+    @Then("user can see {string}")
+    public void userCanSee(String expected) {
+        WebElement expectedTask = Driver.getDriver().findElement(By.xpath("//span[.='"+expected+"']"));
+        Assert.assertTrue(expectedTask.isDisplayed());
+    }
 }

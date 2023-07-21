@@ -33,6 +33,16 @@ public class TaskModuleFunctionality_Page {
     @FindBy(xpath = "//div[@class='draggable-container']/li")
     public List<WebElement> allList;
 
+   // @FindBy(xpath = "//input[@placeholder='Add a task to \"College\"…']")
+   @FindBy(xpath = "//div[@class='header__input']//input[@class='transparent reactive']")
+    public WebElement addTextBox;
+
+
+
+
+
+
+
 
 
 
