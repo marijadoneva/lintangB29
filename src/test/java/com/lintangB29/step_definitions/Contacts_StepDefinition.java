@@ -51,6 +51,7 @@ public class Contacts_StepDefinition {
         BrowserUtils.sleep(2);
         List<String>expectedNames= BrowserUtils.getElementsText(newContactPage.allContactslist);
 
+
     }
 
 

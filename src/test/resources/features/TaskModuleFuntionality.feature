@@ -14,7 +14,7 @@ Feature: As a user, I should be able to create a can modify tasks.
     And user clicks on Add list button
     And user fills "<newList>" box
     And user clicks Checkmark button
-    #Then user should see "<expectedList>"
+    Then user should see "<expectedList>"
 
 
     Examples:

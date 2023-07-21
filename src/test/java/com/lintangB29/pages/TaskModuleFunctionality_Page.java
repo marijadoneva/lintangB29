@@ -1,6 +1,8 @@
 package com.lintangB29.pages;
 
+import com.google.common.base.Predicates;
 import com.lintangB29.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TaskModuleFunctionality_Page {
+
+
     public TaskModuleFunctionality_Page(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -26,24 +30,21 @@ public class TaskModuleFunctionality_Page {
     @FindBy(xpath = "//li[@class='app-navigation-entry collection reactive collection--edit']//input[@title='Save']")
     public WebElement checkmarkButton;
 
-    @FindBy(xpath = "//li[@class='app-navigation-entry list reactive']")
+    @FindBy(xpath = "//div[@class='draggable-container']/li")
     public List<WebElement> allList;
 
-    public static List<WebElement>listOfAllTasksWebElements(){
-        List<WebElement> allTasksWebElements = Driver.getDriver().findElements(By.xpath("//li[@class='app-navigation-entry list reactive']"));
-        return allTasksWebElements;
-    }
 
-    public static List<String> listOfALlTasksString(){
 
-        List<String> textOfAllTasks = new ArrayList<>();
 
-        for (WebElement tasks : listOfAllTasksWebElements()) {
-            textOfAllTasks.add(tasks.getText());
-        }
 
-        return textOfAllTasks;
-    }
+
+
+
+
+
+
+
+
 
     }
 
