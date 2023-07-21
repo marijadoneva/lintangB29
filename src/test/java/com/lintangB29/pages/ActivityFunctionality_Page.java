@@ -15,6 +15,7 @@ public class ActivityFunctionality_Page {
     }
 
 
+
     @FindBy(xpath = "//*[@id='appmenu']//a[contains(@href, '/index.php/apps/activity/')]")
     public WebElement ActivityLink;
 
