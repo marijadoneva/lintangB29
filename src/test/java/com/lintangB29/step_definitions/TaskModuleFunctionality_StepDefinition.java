@@ -5,6 +5,7 @@ import com.lintangB29.pages.TaskModuleFunctionality_Page;
 import com.lintangB29.utilities.BrowserUtils;
 import com.lintangB29.utilities.Driver;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -91,4 +92,83 @@ public class TaskModuleFunctionality_StepDefinition {
         WebElement expectedTask = Driver.getDriver().findElement(By.xpath("//span[.='"+expected+"']"));
         Assert.assertTrue(expectedTask.isDisplayed());
     }
-}
+
+    @And("user clicks on check box")
+    public void userClicksOnCheckBox() {
+        BrowserUtils.sleep(2);
+        taskModuleFunctionalityPage.checkBox.click();
+        BrowserUtils.sleep(4);
+    }
+
+    @Then("user should see {string} in tasks list")
+    public void userShouldSeeInTasksList(String completed) {
+        WebElement neededTask = Driver.getDriver().findElement(By.xpath("//span[@title='"+completed+"']"));
+        Assert.assertTrue(neededTask.isDisplayed());
+
+    }
+
+    @Then("user should see the number of {string} tasks")
+    public void userShouldSeeTheNumberOfTasks(String completed) {
+        WebElement number = Driver.getDriver().findElement(By.xpath(" //li[@id='collection_"+completed+"']/div"));
+        Assert.assertTrue(number.isDisplayed());
+        BrowserUtils.sleep(2);
+
+    }
+
+    @And("user clicks on star")
+    public void userClicksOnStar() {
+        taskModuleFunctionalityPage.star.click();
+    }
+
+    @Then("user should reset changes")
+    public void userShouldResetChanges() {
+         taskModuleFunctionalityPage.completed.click();
+          BrowserUtils.sleep(3);
+          taskModuleFunctionalityPage.completedCheckmark.click();
+    }
+
+    @Then("user should reset")
+    public void userShouldReset() {
+        taskModuleFunctionalityPage.important.click();
+        BrowserUtils.sleep(2);
+        taskModuleFunctionalityPage.completedStar.click();
+    }
+
+    @And("user clicks on three dots")
+    public void userClicksOnDots() {
+        BrowserUtils.sleep(3);
+        taskModuleFunctionalityPage.threeDots.click();
+        BrowserUtils.sleep(3);
+    }
+
+    @And("user clicks on delete")
+    public void userClicksOnDelete() {
+        BrowserUtils.sleep(2);
+        taskModuleFunctionalityPage.delete.click();
+        BrowserUtils.sleep(10);
+    }
+
+
+    //  @And("user clicks on check box for {string}")
+    //public void userClicksOnCheckBoxFor(String task) {
+
+//        Assert.assertTrue(BrowserUtils.getElementsText(taskModuleFunctionalityPage.checkBoxes).contains(task));
+
+//        BrowserUtils.sleep(3);
+//        for (WebElement each : taskModuleFunctionalityPage.checkBoxes) {
+//
+//            if (each.getText().equals(task)){
+//                each.click();
+//
+//            }else {
+//                System.out.println("Error");
+//                System.out.println(each.getText());
+//            }
+//        }
+//        BrowserUtils.sleep(3);
+
+    }
+
+
+
+

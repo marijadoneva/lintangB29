@@ -37,6 +37,45 @@ public class TaskModuleFunctionality_Page {
    @FindBy(xpath = "//div[@class='header__input']//input[@class='transparent reactive']")
     public WebElement addTextBox;
 
+    @FindBy(xpath = "(//div[@class='task-checkbox no-nav'])[2]")
+    public WebElement checkBox;
+
+    @FindBy(xpath = "//div[@class='task-checkbox no-nav']")
+    public List<WebElement>checkBoxes;
+
+
+
+    @FindBy(xpath = "//li[@id='collection_completed']")
+    public WebElement completed;
+
+    @FindBy(xpath = "//li[@id='collection_starred']")
+    public WebElement important;
+
+    @FindBy(xpath = "//li[@class='task-item']//button[@class='action-item action-item--single reactive no-nav undefined undefined priority priority--high has-tooltip']")
+    public WebElement completedStar;
+
+
+
+    @FindBy(xpath = "//li[@id='collection_completed']//div[@class='app-navigation-entry__utils']")
+    public WebElement number;
+
+    @FindBy(xpath = "//li[@class='task-item task-item--closed']//div[@class='task-checkbox no-nav']")
+    public WebElement completedCheckmark;
+
+
+    @FindBy(xpath = "(//li[@class='task-item']//button[@class='action-item action-item--single reactive no-nav undefined undefined has-tooltip'])[2]")
+    public WebElement star;
+
+    @FindBy(xpath = "//li[@class='app-navigation-entry list reactive router-link-exact-active active']/div/div[@class='action-item']")
+    public WebElement threeDots;
+
+
+
+    @FindBy(xpath = "(//div[@class='open']//li)[4]")
+    public WebElement delete;
+
+
+
 
 
 
