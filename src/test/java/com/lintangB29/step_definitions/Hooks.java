@@ -1,8 +1,5 @@
 package com.lintangB29.step_definitions;
 
-
-
-
 import com.lintangB29.utilities.BrowserUtils;
 import com.lintangB29.utilities.ConfigurationReader;
 import com.lintangB29.utilities.Driver;
