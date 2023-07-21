@@ -8,8 +8,8 @@ Feature: User can upload a file
   Scenario: As a user, I should be able to upload a file
     When User enters on "Files" module page
     And User click on the Upload file button
-    And User can select file "C:\Users\chimi\OneDrive\Desktop\New Text Document.txt"
-    Then User can see uploading file on the list
+    And User can select file "C:/Users/chimi/OneDrive/Desktop/file.txt"
+    Then User can see "file" uploading file on the list
 
     Scenario: As a user, I should be crate a new folder
       When user navigates on "Files" module page
