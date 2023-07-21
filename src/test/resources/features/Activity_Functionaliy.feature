@@ -3,7 +3,7 @@ Feature: Activity Functionality
   User Story: As a user, I should be able to see listed items under the Activity module.
 
   Background: For all scenarios user is on the login page of the seamlessly application
-    Given  user is on the login page of the seamlessly application
+    Given  user is on the dashboard page
 
     Scenario: As a user, I should be able to see listed items under the Activity module
       And  :User click on Activity icon on the module
