@@ -11,11 +11,14 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en_old.Ac;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Contacts_StepDefinition {
     LoginPage loginPage = new LoginPage();
@@ -37,27 +40,28 @@ public class Contacts_StepDefinition {
 
         newContactPage.newContactButton.click();
 
-
     }
     @When("user fills {string}")
     public void user_fills(String name) {
        newContactPage.newContact(name);
-       BrowserUtils.sleep(3);
+    }
+
+    @Then("user should see {string} in all contact list")
+    public void user_should_see_in_all_contact_list(String expectedName) {
+        BrowserUtils.sleep(2);
+        List<String>expectedNames= BrowserUtils.getElementsText(newContactPage.allContactslist);
+
     }
 
 
     @And("user clicks on All contact button")
     public void userClicksOnAllContactButton() {
-        newContactPage.notGrouped.click();
+        newContactPage.allContacts.click();
     }
 
 
     @And("user should see all contacts")
     public void userShouldSeeAllContacts() {
-
-        for (WebElement each: newContactPage.contacts) {
-            System.out.println(each.getText());
-        }
 
     }
 
@@ -73,7 +77,7 @@ public class Contacts_StepDefinition {
 
     @And("user clicks on the three dots")
     public void userClicksOnTheThreeDots() {
-        newContactPage.threeDots.click();
+       newContactPage.threeDots.click();
     }
 
     @Then("user clicks on delete button")
@@ -81,19 +85,34 @@ public class Contacts_StepDefinition {
         newContactPage.deleteButton.click();
     }
 
+    @Then("user should not see the first contact in the ALl Contact list")
+    public void userShouldNotSeeTheFirstContactInTheALlContactList() {
+
+    }
+
     @And("user clicks on the picture icon")
     public void userClicksOnThePictureIcon() {
+        newContactPage.pictureButton.click();
     }
 
     @And("user clicks on From your file folder")
     public void userClicksOnFromYourFileFolder() {
+        newContactPage.chooseFromButton.click();
     }
 
     @Then("user clicks on wanted photo")
     public void userClicksOnWantedPhoto() {
+        newContactPage.selectedPicture.click();
     }
 
     @Then("user clicks on Choose button")
     public void userClicksOnChooseButton() {
+        newContactPage.chooseButton.click();
+        BrowserUtils.verifyElementDisplayed(newContactPage.newPicture);
+
     }
+
+
+
 }
+

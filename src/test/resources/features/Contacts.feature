@@ -12,15 +12,23 @@ Feature: As a user, I should be able to create a new contact and edit/delete any
     When user navigates to Contact module
     And user clicks on new contact button
     And user fills "<name>"
+    #Then user should see "<expectedName>" in all contact list
+
+
     #Then new contact should appear in 'all contact' list
 
 
     Examples:
-      | name            |
-      | John Doe        |
-      | Rob Stark       |
-      | Jaime Lannister |
-      | Jon Snow        |
+      | name            | expectedName    |
+      | John Doe        | John Doe        |
+      | Rob Stark       | Rob Stark       |
+      | Jaime Lannister | Jaime Lannister |
+      | Jon Snow        | Jon Snow        |
+
+
+
+
+
 
 
   Scenario: User can User can see all the contacts as a list inside the middle column
@@ -32,6 +40,12 @@ Feature: As a user, I should be able to create a new contact and edit/delete any
     And user should see all contacts
     Then user should see the total number of contacts
 
+
+
+
+
+
+
   Scenario: User can change the profile picture of any contact with a previously
   uploaded picture by using “Choose from files” option
     Given user is on the dashboard page
@@ -42,12 +56,16 @@ Feature: As a user, I should be able to create a new contact and edit/delete any
     Then user clicks on wanted photo
     Then user clicks on Choose button
 
+
   Scenario: User can delete any selected contact
     Given user is on the dashboard page
     When user navigates to Contact module
     And user clicks on the first contact
     And user clicks on the three dots
     Then user clicks on delete button
+    Then user should not see the first contact in the ALl Contact list
+
+
 
 
 
