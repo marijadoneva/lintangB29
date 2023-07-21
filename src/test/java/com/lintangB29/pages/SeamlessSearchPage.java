@@ -22,6 +22,9 @@ public WebElement searchBar;
 @FindBy(xpath = "//h3[@title='pngtree-sun-sunshine-png-image_8977147.png']")
     public WebElement searchFile;
 
+@FindBy(xpath = "//h2[@class='empty-content__title']")
+    public WebElement errorMessage;
+
 
 
 

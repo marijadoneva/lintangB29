@@ -11,7 +11,9 @@ public class SeamlessSearchResultPage extends SeamlessSearchPage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-@FindBy(xpath = "//span[@class='material-design-icon close-icon'][1]")
+
+
+    @FindBy(xpath = "//button[@class='action-item action-item--single header-close undefined undefined has-tooltip']")
     public WebElement closeIcon;
 
 

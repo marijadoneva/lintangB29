@@ -7,6 +7,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import junit.framework.AssertionFailedError;
+import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 
@@ -15,7 +17,6 @@ import static org.openqa.selenium.Keys.ENTER;
 public class SeamlessSearch_StepDefinitions {
 
     SeamlessSearchPage seamlessSearchPage = new SeamlessSearchPage();
-
 
     @When("user searches the file {string} in the search icon")
     public void user_searches_the_file_in_the_search_icon(String searchValue) {
@@ -40,7 +41,8 @@ public class SeamlessSearch_StepDefinitions {
 
     }
 
-SeamlessSearchResultPage seamlessSearchResultPage=new SeamlessSearchResultPage();
+
+    SeamlessSearchResultPage seamlessSearchResultPage=new SeamlessSearchResultPage();
     @And("user clicks on the close icon of the image displayed")
     public void userClicksOnTheCloseIconOfTheImageDisplayed() {
         BrowserUtils.sleep(2);
@@ -55,6 +57,38 @@ SeamlessSearchResultPage seamlessSearchResultPage=new SeamlessSearchResultPage()
     @Then("user should be redirected to the Dashboard page")
     public void userShouldBeRedirectedToTheDashboardPage() {
         BrowserUtils.verifyTitle("Dashboard - Seamlessly");
+    }
+
+    @When("user enters {string} in the search bar")
+    public void userEntersInTheSearchBar(String nameSearch) {
+        seamlessSearchPage.searchIcon.click();
+        seamlessSearchPage.searchBar.sendKeys(nameSearch);
+        BrowserUtils.sleep(2);
+
+    }
+
+
+    @And("user clicks on the search button or press Enter")
+    public void userClicksOnTheSearchButtonOrPressEnter() {
+
+        seamlessSearchPage.searchBar.submit();
+        BrowserUtils.sleep(2);
+
+
+    }
+
+
+    @Then("the system fails to display the contact searched {string}")
+    public void theSystemFailsToDisplayTheContactSearched(String nameSearch) {
+    nameSearch.isBlank();
+
+    }
+
+    @Then("system should display error message")
+    public void systemShouldDisplayErrorMessage() {
+
+       Assert.assertTrue( seamlessSearchPage.errorMessage.isDisplayed() );
+
 
     }
 
