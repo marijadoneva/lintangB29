@@ -7,7 +7,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 
@@ -21,16 +20,16 @@ public class SeamlessSearch_StepDefinitions {
     @When("user searches the file {string} in the search icon")
     public void user_searches_the_file_in_the_search_icon(String searchValue) {
         seamlessSearchPage.searchIcon.click();
-        seamlessSearchPage.searchBar.sendKeys(searchValue+ Keys.ENTER);
-
-
+       seamlessSearchPage.searchBar.sendKeys(searchValue);
+       BrowserUtils.sleep(2);
 
 
     }
 
     @When("user presses Enter")
     public void user_presses_enter() {
-
+        seamlessSearchPage.searchBar.submit();
+        BrowserUtils.sleep(2);
 
 
     }
@@ -40,11 +39,12 @@ public class SeamlessSearch_StepDefinitions {
         BrowserUtils.verifyTitleContains(expectedInTitle);
 
     }
+
 SeamlessSearchResultPage seamlessSearchResultPage=new SeamlessSearchResultPage();
     @And("user clicks on the close icon of the image displayed")
     public void userClicksOnTheCloseIconOfTheImageDisplayed() {
+        BrowserUtils.sleep(2);
         seamlessSearchResultPage.closeIcon.click();
-
 
     }
     @And("user clicks on the App icon at the top left corner of the page")

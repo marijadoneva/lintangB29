@@ -14,7 +14,13 @@ Feature: Seamlessly File and contact Search verification
     And user presses Enter
     Then user should see relevant file "pngtree" matching the search query in title
 
-
+@wip
+  Scenario:  user navigates to the Dashboard page by clicking the App icon
+    When user searches the file "pngtree" in the search icon
+    And user presses Enter
+    And user clicks on the close icon of the image displayed
+    And  user clicks on the App icon at the top left corner of the page
+    Then user should be redirected to the Dashboard page
 
   Scenario: Search for a contact from the Dashboard
     When user enters "Tom Hilson" in the search bar
@@ -32,12 +38,7 @@ Feature: Seamlessly File and contact Search verification
 
 
 @wip
-  Scenario:  user navigates to the Dashboard page by clicking the App icon
-    When user searches the file "pngtree" in the search icon
-    And user presses Enter
-    And user clicks on the close icon of the image displayed
-    And  user clicks on the App icon at the top left corner of the page
-    Then user should be redirected to the Dashboard page
+
 
 
 
