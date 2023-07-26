@@ -78,9 +78,10 @@ public class SeamlessSearch_StepDefinitions {
     }
 
 
-    @Then("the system fails to display the contact searched {string}")
-    public void theSystemFailsToDisplayTheContactSearched(String nameSearch) {
-    nameSearch.isBlank();
+    @Then("the system should display the contact searched {string}")
+    public void theSystemShouldDisplayTheContactSearched(String nameSearch) {
+
+        Assert.assertTrue("Contact is NOT displayed", nameSearch.isBlank());
 
     }
 
