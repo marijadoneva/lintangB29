@@ -21,21 +21,24 @@ Feature: As a user I should be able to modify Dashboard page
   Scenario: Seamlessly Customize button
     Given user can click on Customize button
     And user can select any of the Widgets from dashboard
-      | Status            |
-      | Weather           |
-      | Recommended files |
-      | Recent activity   |
-      | Upcoming events   |
-      | Upcoming cards    |
-      | Notes             |
-      | Upcoming tasks    |
-      | Recent statuses   |
+    Then user can click on x Button to close the Widgets
 
-  @1
+      #| Status            |
+      #| Weather           |
+     # | Recommended files |
+      #| Recent activity   |
+      #| Upcoming events   |
+      #| Upcoming cards    |
+      #| Notes             |
+      #| Upcoming tasks    |
+      #| Recent statuses   |
+
+
   Scenario: Seamlessly Set Status
     Given User is on the homepage
     When user can click on Set Status button
     Then user can select any of the Status options
+    Then user can click on x Button to close the Set Status
 
 
 

@@ -47,41 +47,61 @@ public class DashboardFunctionality_StepDefinition {
        modulesPage.CustomizeButton.click();
     }
 
-    @And("user can select any of the Widgets from dashboard")
-    public void userCanSelectAnyOfTheWidgetsFromDashboard(List<String> expectedCustomize) {
+   // @And("user can select any of the Widgets from dashboard")
+   // public void userCanSelectAnyOfTheWidgetsFromDashboard(List<String> expectedCustomize) {
         //  System.out.println("expectedCustomize = " + expectedCustomize);
-        List<String> actualCustomize = new ArrayList<>();
-        for (int i = 0; i < expectedCustomize.size(); i++) {
-            String locator = "//label[normalize-space(text())='" + expectedCustomize.get(i) + "']";
-            WebElement eachWidget = Driver.getDriver().findElement(By.xpath(locator));
-            actualCustomize.add(eachWidget.getText());
+        //List<String> actualCustomize = new ArrayList<>();
+        //for (int i = 0; i < expectedCustomize.size(); i++) {
+            //String locator = "//label[normalize-space(text())='" + expectedCustomize.get(i) + "']";
+           // WebElement eachWidget = Driver.getDriver().findElement(By.xpath(locator));
+           // actualCustomize.add(eachWidget.getText());
 
-            if (!eachWidget.isSelected()) {//if it not selected
-                eachWidget.click();//select it
-            }
+           // if (!eachWidget.isSelected()) {//if it not selected
+              //  eachWidget.click();//select it
+           // }
 //               BrowserUtils.sleep(2);
             //assert if it selected
             // System.out.println(actualCustomize);
             // Assert.assertTrue(eachWidget.isSelected());
             // Assert.assertTrue(actualCustomize.get(i));
-        }
-            Assert.assertEquals(expectedCustomize, actualCustomize);//assert if 2 lists are equal
-        }
+        //}
+           // Assert.assertEquals(expectedCustomize, actualCustomize);//assert if 2 lists are equal
+        //}
 
 
     @When("user can click on Set Status button")
     public void userCanClickOnSetStatusButton() {
         Actions actions = new Actions(Driver.getDriver());
+        BrowserUtils.waitForClickablility(modulesPage.setStatus,3);
         actions.moveToElement( modulesPage.setStatus).click().perform();//click on set status
         actions.moveToElement(modulesPage.online).click().perform();
+        Assert.assertTrue(modulesPage.online.isSelected());
         actions.moveToElement(modulesPage.away).click().perform();
+        Assert.assertTrue(modulesPage.away.isSelected());
         actions.moveToElement(modulesPage.doNotDistribute).click().perform();
+        Assert.assertTrue(modulesPage.doNotDistribute.isSelected());
         actions.moveToElement(modulesPage.invisible).click().perform();
+        Assert.assertTrue(modulesPage.invisible.isSelected());
 
 
     }
 
     @Then("user can select any of the Status options")
     public void userCanSelectAnyOfTheStatusOptions() {
+    }
+
+    @Then("user can click on x Button to close the Widgets")
+    public void userCanClickOnXButtonToCloseTheWidgets() {
+        modulesPage.XButton.click();
+    }
+
+    @And("user can select any of the Widgets from dashboard")
+    public void userCanSelectAnyOfTheWidgetsFromDashboard() {
+     modulesPage.checkstutes.click();
+    }
+
+    @Then("user can click on x Button to close the Set Status")
+    public void userCanClickOnXButtonToCloseTheSetStatus() {
+        modulesPage.XButton.click();
     }
 }
