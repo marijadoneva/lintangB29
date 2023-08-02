@@ -58,6 +58,11 @@ public class SeamlesslyModulesPage extends LoginPage {
   */
     @FindBy(xpath = "//a[text()='Customize']")
     public WebElement CustomizeButton;
+    @FindBy(xpath = "//label[@class='icon-user-status-online']")
+    public WebElement checkstutes;
+
+    @FindBy(xpath = "//button[@class='action-item action-item--single header-close undefined undefined has-tooltip']")
+    public WebElement XButton;
     /*
 
     @FindBy(xpath = "//label[@class = 'icon-user-status-online']")
@@ -106,6 +111,8 @@ public class SeamlesslyModulesPage extends LoginPage {
     @FindBy(xpath = "//label[@class = 'user-status-online-select__label icon-user-status-invisible']")
     public WebElement invisible;
 
+    @FindBy(xpath= "//button[@class ='action-item action-item--single header-close undefined undefined has-tooltip']")
+    public WebElement XCross;
 
 
 
